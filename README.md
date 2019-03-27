@@ -3,7 +3,7 @@
 my solution for Jobcase's challenge to:
 
 1. create a webscraper that can collect 100,000 job listings from indeed and store them.
-   - Considers approaches using multiple types of webscraper packages, (Bs4, Selenium, Selenium + Bs4, Node.js puppeteer)
+   - Considers approaches using multiple types of webscraper packages, (Bs4, Selenium, Node.js puppeteer)
    - focuses on trying to reduce time per scrape. 
    - findings suggested that using lxml parser improved speed, as did using css selectors to locate attributed. Javscript-based scrapers, (Node.js and Selenium) proved to crawl more pages per hour than did bs4. 
    - project next steps: multip-processing, addtional tweaks to scrapers. 
