@@ -37,7 +37,9 @@ CREATE TABLE compensation(
 comp_id  INT AUTO_INCREMENT PRIMARY KEY, 
 hourly VARCHAR(100), 
 monthly VARCHAR(100),
-yearly VARCHAR(100)
+yearly VARCHAR(100), 
+salary_high INT,
+salary_low INT
 );
 
 CREATE TABLE posting_info(
