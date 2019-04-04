@@ -144,3 +144,6 @@ for job in jobtype:
                 pass
             session.commit()
             i += 1
+
+    if i >= 100000:
+        break 
