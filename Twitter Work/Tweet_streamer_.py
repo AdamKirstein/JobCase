@@ -77,16 +77,29 @@ class StreamListener(tweepy.StreamListener):
         def on_error(self, status_code):
             if status_code == 420:
                 return False
+  
+#extracting the id codes from the company names list 
+#for i in comp_list:
+  #  try: 
+   #     users = api.get_user(i)
+  #  except: 
+  #      continue
+    #print(users.id)
                 
  #building sqlite db              
 import dataset
 db = dataset.connect("sqlite:///total_twitter_set.db") 
 
-#setting up and executing listenr. 
+#reading in csv holding newly extracted ids
+ids = pd.read_csv('company_ids.csv')
+ids["company ids"] = ids["company ids"].astype(int)
+ids = ids["company ids"].astype(str).values.tolist()
+
+#execute 
 stream_listener = StreamListener()
 stream = tweepy.Stream(auth=api.auth, listener=stream_listener)
-for i in comp_list:
-    stream.filter(track=[i])
+#switching 'track' to 'follow' to monitor mentions of the company ids. (able to go through more in a better, faster way
+stream.filter(follow=[i for i in ids] ,languages=["en"])
     
     
  #testing db access and population 
