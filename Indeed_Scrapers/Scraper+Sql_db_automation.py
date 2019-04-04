@@ -73,7 +73,7 @@ session = Session()
 #apply db class attributes to data points and push
 
 jobtype= ['fulltime','parttime']
-
+i = 0
 for job in jobtype:
     for page in range(1,10): # page from 1 to 100 (last page we can scrape is 100)
         page = (page-1) * 10  
@@ -143,3 +143,4 @@ for job in jobtype:
             except: 
                 pass
             session.commit()
+            i += 1
